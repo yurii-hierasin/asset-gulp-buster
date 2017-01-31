@@ -1,0 +1,42 @@
+{
+    "name"                : "yuriiorg/asset-gulp-buster",
+    "description"         : "Buster cash using busters.json",
+    "minimum-stability"   : "stable",
+    "license"             : "proprietary",
+    "homepage"            : "https://github.com/yurii-hierasin/asset-gulp-buster",
+    "authors"             : [
+        {
+            "name" : "Yurii Hierasin",
+            "email": "yurii.hierasin@gmail.com",
+            "role" : "Developer"
+        }
+    ],
+    "require": {
+        "symfony/asset": "^3.2",
+        "php": ">=5.5.9",
+        "twig/twig": "v1.31.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "YuriiOrg\\": "src/"
+        },
+        "files": [
+        ]
+    },
+    "autoload-dev"        : {
+        "psr-4": {
+            "YuriiOrg\\Tests\\": "tests/"
+        },
+        "files": [
+        ]
+    },
+    "repositories": [
+    ],
+    "non-feature-branches": [
+    ],
+    "support": {
+    }
+}
