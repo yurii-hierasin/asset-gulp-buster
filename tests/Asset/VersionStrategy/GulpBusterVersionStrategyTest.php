@@ -28,7 +28,23 @@ class GulpBusterVersionStrategyTest extends \PHPUnit_Framework_TestCase
         $twig->addGlobal('asset', $versionStrategy);
         $this->assertEquals(
             '<script src="js/script.js?f9c7afd05729f10f55b689f36bb20172"></script>',
-            $twig->render('test.html.twig')
+            $twig->render('test1.html.twig')
+        );
+    }
+
+    public function testTwigExtensionFunction()
+    {
+        $manifestPath = __DIR__ . '/../../Resources/busters.json';
+        $versionStrategy = new GulpBusterVersionStrategy($manifestPath);
+
+        $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../../Resources/');
+        $twig = new \Twig_Environment($loader);
+        $function = new \Twig_SimpleFunction('asset', array($versionStrategy, 'applyVersion'));
+        $twig->addFunction($function);
+
+        $this->assertEquals(
+            '<script src="js/script.js?f9c7afd05729f10f55b689f36bb20172"></script>',
+            $twig->render('test2.html.twig')
         );
     }
 }
